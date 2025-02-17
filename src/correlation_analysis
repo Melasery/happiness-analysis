@@ -1,0 +1,16 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load dataset
+df = pd.read_csv('../data/happiness_combined.csv')
+
+# Compute correlation matrix
+correlation_matrix = df.corr()
+
+# Plot heatmap
+plt.figure(figsize=(10, 8))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', linewidths=0.5)
+plt.title('Correlation Matrix of Happiness Report Factors')
+plt.savefig('../docs/correlation_matrix.png')
+plt.show()
